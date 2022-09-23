@@ -1,10 +1,10 @@
 
 class Usuario {
-    constructor(nombre, apellido, libros = [], mascotas = []){
+    constructor(nombre, apellido,){
         this.nombre = nombre;
         this.apellido = apellido;
-        this.libros = libros;
-        this.mascotas = mascotas;
+        this.libros = [];
+        this.mascotas = [];
     }
 
     ObtenerNombreCompleto(){
@@ -20,17 +20,20 @@ class Usuario {
     }
 
     añadirLibro(titulo, autor){
-        this.libros.push({titulo, autor: autor})
+        this.libros.push({titulo, autor})
+    }
+    ObtenerNombreLibro() {
+        return this.libros.map(libro => libro.titulo);
     }
 
+    /*  forEach
     ObtenerNombreLibro(){
         const nombreLibros = []
 
         this.libros.forEach((libro) => nombreLibros.push(libro.titulo));
 
         return nombreLibros;
-    }
-
+    }*/
 }
 
 const primerUsuario = new Usuario (
@@ -56,3 +59,15 @@ const segundoUsuario = new Usuario(
 );
 
 console.log(segundoUsuario.ObtenerNombreLibro());
+
+
+/*
+
+Y a la hora de instanciar la clase solo con el nombre y apellido, así:
+
+const primerUsuario = new Usuario("Tomas", "Perez");
+
+De esta manera los encargados de modificar los atributos "libros" y "mascotas", son los métodos correspondientes, evitando así generar errores si a la hora de instanciar la clase se le pasa al constructor algo que no sea un array.
+
+
+*/
