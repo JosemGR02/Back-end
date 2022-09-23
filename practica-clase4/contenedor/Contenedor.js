@@ -2,19 +2,19 @@
 import fs from "fs";
 
 class contenedor {
-    constructor(fileName) {
-    this.filePath = `./src/db/${fileName}.json`;
+    constructor(archivoNombre) {
+    this.rutArchivo = `./src/db/${archivoNombre}.json`;
 }
 
     async obtenerTodos() {
     try {
-        const file = await fs.promises.readFile(this.filePath, "utf8");
+        const file = await fs.promises.readFile(this.rutArchivo, "utf8");
         const elementos = JSON.parse(file);
 
         return elementos;
     } catch (error) {
         if (error.code === "ENOENT") {
-        await fs.promises.writeFile(this.filePath, JSON.stringify([], null, 3));
+        await fs.promises.writeFile(this.rutArchivo, JSON.stringify([], null, 3));
         return [];
         }
         console.log(error);
@@ -30,7 +30,7 @@ class contenedor {
 
         elementos.push(element);
 
-        await fs.promises.writeFile(this.filePath, JSON.stringify(elementos, null, 3)
+        await fs.promises.writeFile(this.rutArchivo, JSON.stringify(elementos, null, 3)
         );
 
         return element.id;
@@ -63,7 +63,7 @@ class contenedor {
 
         const filtrarElementos = elementos.filter((elemento) => elemento.id != id);
 
-        await fs.promises.writeFile(this.filePath, JSON.stringify(filtrarElementos, null, 3)
+        await fs.promises.writeFile(this.rutArchivo, JSON.stringify(filtrarElementos, null, 3)
         );
     } catch (error) {
         console.log(error);
@@ -72,7 +72,7 @@ class contenedor {
 
     async eliminarTodos() {
     try {
-        await fs.promises.writeFile(this.filePath, JSON.stringify([], null, 3));
+        await fs.promises.writeFile(this.rutArchivo, JSON.stringify([], null, 3));
     } catch (error) {
         console.log(error);
     }
@@ -97,7 +97,7 @@ class contenedor {
     }
 
     await fs.promises.writeFile(
-        this.filePath,
+        this.rutArchivo,
         JSON.stringify(elementos, null, 3)
     );
     } catch (error) {
