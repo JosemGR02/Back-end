@@ -14,12 +14,13 @@ contenedorProductos.guardado({
 })
     .then((data) => console.log({ data }))
     .catch((error) => console.log({ error }));
-/*
-contenedorProductos.obtenerXid(2)
+
+contenedorProductos.obtenerXid(1)
     .then((data) => console.log({ data }))
     .catch((error) => console.log({ error }));
 
 contenedorProductos.borrarXid(3).then((data) => console.log({ data }));
+
 contenedorProductos.eliminarTodos();
 
 const productos = [
@@ -57,7 +58,7 @@ const metodosPrueba = async () => {
     };
 
 metodosPrueba();
-
+/*
 contenedorProductos.actualizar({
     id: 2,
     newData: { title: "Producto 2 jvbidte", price: 1500 },
