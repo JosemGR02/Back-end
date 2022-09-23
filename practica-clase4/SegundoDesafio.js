@@ -1,9 +1,6 @@
 
 import { contenedor } from "./contenedor/Contenedor.js";
 
-
-const contenedor = require('./contenedor/Contenedor.js')
-
 const contenedorProductos = new contenedor("productos");
 
 contenedorProductos.obtenerTodos()
@@ -17,7 +14,7 @@ contenedorProductos.guardado({
 })
     .then((data) => console.log({ data }))
     .catch((error) => console.log({ error }));
-
+/*
 contenedorProductos.obtenerXid(2)
     .then((data) => console.log({ data }))
     .catch((error) => console.log({ error }));
@@ -65,3 +62,4 @@ contenedorProductos.actualizar({
     id: 2,
     newData: { title: "Producto 2 jvbidte", price: 1500 },
 });
+*/

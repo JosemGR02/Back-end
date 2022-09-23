@@ -21,14 +21,6 @@ class contenedor {
         }
     }
     
-}
-
-const contenedorProductos = new contenedor("productos");
-
-contenedorProductos.obtenerTodos()
-    .then((data) => console.log({ data }))
-    .catch((error) => console.log({ error }));
-/*
     async guardado(element) {
         try {
             const elementos = await this.obtenerTodos();
@@ -116,4 +108,3 @@ contenedorProductos.obtenerTodos()
 }
 
 export { contenedor };
-*/
