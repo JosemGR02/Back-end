@@ -1,91 +1,67 @@
-// usando type module en package json
-import { Container } from "./containers/Container.js";
 
-// sin module
-// const Container = require('./containers/Container.js')
+import { contenedor } from "./contenedor/Contenedor.js";
 
-const ProductContainer = new Container("productos");
-const CartContainer = new Container("carrito");
 
-// ProductContainer.getAll()
-//   .then((data) => console.log({ data }))
-//   .catch((error) => console.log({ error }));
+const contenedor = require('./contenedor/Contenedor.js')
 
-// ProductContainer.save({
-//   title: "Producto 1",
-//   price: 300,
-//   thumbnail: "httppasjdaskjl",
-// })
-//   .then((data) => console.log({ data }))
-//   .catch((error) => console.log({ error }));
+const contenedorProductos = new contenedor("productos");
 
-// ProductContainer.getById(100)
-//   .then((data) => console.log({ data }))
-//   .catch((errorcito) => console.log({ errorcito }));
+contenedorProductos.obtenerTodos()
+    .then((data) => console.log({ data }))
+    .catch((error) => console.log({ error }));
 
-// ProductContainer.deleteById(13).then((data) => console.log({ data }));
-// ProductContainer.deleteAll();
+contenedorProductos.guardado({
+    title: "Producto 1 ekdvcy",
+    price: 3100,
+    thumbnail: "eqrqrqtt",
+})
+    .then((data) => console.log({ data }))
+    .catch((error) => console.log({ error }));
 
-// const products = [
-//   {
-//     title: "Producto 1",
-//     price: 300,
-//     thumbnail: "httppasjdaskjl",
-//   },
-//   {
-//     title: "Producto 2",
-//     price: 500,
-//     thumbnail: "httppasjdaskjl",
-//   },
-//   {
-//     title: "Producto 3",
-//     price: 700,
-//     thumbnail: "httppasjdaskjl",
-//   },
-// ];
+contenedorProductos.obtenerXid(2)
+    .then((data) => console.log({ data }))
+    .catch((error) => console.log({ error }));
 
-// const testMethods = async () => {
-//   try {
-//     const productID1 = await ProductContainer.save(products[0]);
-//     const productID2 = await ProductContainer.save(products[1]);
-//     const productID3 = await ProductContainer.save(products[2]);
+contenedorProductos.borrarXid(3).then((data) => console.log({ data }));
+contenedorProductos.eliminarTodos();
 
-//     const product = await ProductContainer.getById(1);
-//     console.log({ product });
-//   } catch (error) {
-//     console.log({ error });
-//   }
-// };
+const productos = [
+    {
+        title: "Producto 1 ekdvcy",
+        price: 3100,
+        thumbnail: "eqrqrqtt",
+    },
+    {
+        title: "Producto 2 jvbidte",
+        price: 1500,
+        thumbnail: "kssjjsj",
+    },
+    {
+        title: "Producto 3 kfjbls",
+        price: 4300,
+        thumbnail: "wywuwuw",
+    },
+];
 
-// testMethods();
+const metodosPrueba = async () => {
 
-// CartContainer.getAll().then((data) => console.log({ data }));
-
-// CartContainer.save({ name: "Lautaro", products: [] });
-
-// ProductContainer.update({
-//   id: 2,
-//   newData: { title: "Producto 2 MODD", price: 1000 },
-// });
-
-const updateCart = async ({ idCarrito, idProduct }) => {
     try {
-    const cart = await CartContainer.getById(idCarrito);
-    if (!cart) return "Cart Not Found";
+        const idProducto1 = await contenedorProductos.guardado(productos[0]);
+        const idProducto2 = await contenedorProductos.guardado(productos[1]);
+        const idProducto3 = await contenedorProductos.guardado(productos[2]);
 
-    const product = await ProductContainer.getById(idProduct);
+        const productos = await contenedorProductos.obtenerXid(1);
+        console.log({ productos });
+    } 
 
-    if (!product) return "Product not found";
+    catch (error) {
+            console.log({ error });
+        }
+    };
 
-    cart.products.push(product);
-    // console.log({ cart });
-    await CartContainer.update({
-        id: idCarrito,
-        newData: { products: cart.products },
-    });
-    } catch (error) {
-    console.log(error);
-    }
-};
+metodosPrueba();
 
-// updateCart({idCarrito: 1, idProduct: 3});
+contenedorProductos.actualizar({
+    id: 2,
+    newData: { title: "Producto 2 jvbidte", price: 1500 },
+});
