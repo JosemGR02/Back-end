@@ -58,9 +58,8 @@ const metodosPrueba = async () => {
     };
 
 metodosPrueba();
-/*
+
 contenedorProductos.actualizar({
     id: 2,
     newData: { title: "Producto 2 jvbidte", price: 1500 },
 });
-*/
