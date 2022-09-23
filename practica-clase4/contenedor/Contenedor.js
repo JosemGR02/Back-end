@@ -3,7 +3,7 @@ import fs from "fs";
 
 class contenedor {
     constructor(archivoNombre) {
-    this.rutArchivo = `./src/db/${archivoNombre}.json`;
+    this.rutArchivo = `./practica-clase4/db/${archivoNombre}.json`;
     }
 
     async obtenerTodos() {
@@ -11,7 +11,6 @@ class contenedor {
             const file = await fs.promises.readFile(this.rutArchivo, "utf8");
             const elementos = JSON.parse(file);
             return elementos;
-
         } 
         catch (error) {
             if (error.code === "ENOENT") {
@@ -21,7 +20,15 @@ class contenedor {
             console.log(error);
         }
     }
+    
+}
 
+const contenedorProductos = new contenedor("productos");
+
+contenedorProductos.obtenerTodos()
+    .then((data) => console.log({ data }))
+    .catch((error) => console.log({ error }));
+/*
     async guardado(element) {
         try {
             const elementos = await this.obtenerTodos();
@@ -109,3 +116,4 @@ class contenedor {
 }
 
 export { contenedor };
+*/
