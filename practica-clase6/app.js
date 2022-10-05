@@ -1,22 +1,23 @@
 
+
 import { contenedor } from "./contenedor/Contenedor.js";
 
 
+const documento = new contenedor("productos");
 
-
-const contenedorProductos = new contenedor("productos");
-
-contenedorProductos.obtenerTodos()
+documento.obtenerTodos()
     .then((data) => console.log({ data }))
     .catch((error) => console.log({ error }));
 
-contenedorProductos.guardar({
+documento.guardar({
     title: "Producto 3 lapicera",
     price: 200,
-    thumbnail: "owwiwishhs",
+    thumbnail: "owwiwishhxs",
     id: 3,
 })
     .then((data) => console.log({ data }))
     .catch((error) => console.log({ error }));
+
+
 
 
