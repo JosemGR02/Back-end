@@ -1,0 +1,15 @@
+{
+  "name": "entrega-n3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start" : "node practica-clase6/index.js",
+    "dev" : "nodemon practica-clase6/index.js --ignore /*.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

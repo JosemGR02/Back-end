@@ -3,7 +3,7 @@ import fs from "fs";
 
 class contenedor {
     constructor(archivoNombre) {
-    this.rutArchivo = `./practica-clase4/db/${archivoNombre}.json`;
+    this.rutArchivo = `./practica-clase6/db/${archivoNombre}.json`;
     }
 
     async obtenerTodos() {
