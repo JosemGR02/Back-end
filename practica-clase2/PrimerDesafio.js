@@ -36,9 +36,9 @@ class Usuario {
     }*/
 }
 
-const primerUsuario = new Usuario (
-    "Tomas", "Perez", [{titulo: "cancion de hielo y fuego", autor: "George Martin"}], ["gato", "tortuga"]
-);
+const primerUsuario = new Usuario ("Tomas", "Perez");
+primerUsuario.añadirLibro("cancion de hielo y fuego","George Martin");
+primerUsuario.añadirMascota("gato", "tortuga");
 
 
 console.log(primerUsuario.ObtenerNombreCompleto());
@@ -54,20 +54,15 @@ const nombreLibros = primerUsuario.ObtenerNombreLibro();
 
 console.log(nombreLibros);
 
-const segundoUsuario = new Usuario(
-    "Mauricio", "jocó", [{ titulo: "El banquete", autor: "Platon" }], ["perro", "chimpance"]
-);
+const segundoUsuario = new Usuario("Mauricio", "jocó");
+segundoUsuario.añadirLibro("El banquete","Platon");
+segundoUsuario.añadirMascota("perro", "chimpance");
 
 console.log(segundoUsuario.ObtenerNombreLibro());
 
 
 /*
-
-Y a la hora de instanciar la clase solo con el nombre y apellido, así:
-
-const primerUsuario = new Usuario("Tomas", "Perez");
-
-De esta manera los encargados de modificar los atributos "libros" y "mascotas", son los métodos correspondientes, evitando así generar errores si a la hora de instanciar la clase se le pasa al constructor algo que no sea un array.
-
-
+const primerUsuario = new Usuario (
+    "Tomas", "Perez", [{titulo: "cancion de hielo y fuego", autor: "George Martin"}], ["gato", "tortuga"]
+);
 */

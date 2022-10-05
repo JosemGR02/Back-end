@@ -21,7 +21,7 @@ class contenedor {
         }
     }
     
-    async guardado(element) {
+    async guardar(element) {
         try {
             const elementos = await this.obtenerTodos();
             const id = elementos.length === 0 ? 1 : elementos [elementos.length - 1].id + 1;

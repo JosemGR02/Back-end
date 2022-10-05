@@ -7,7 +7,7 @@ contenedorProductos.obtenerTodos()
     .then((data) => console.log({ data }))
     .catch((error) => console.log({ error }));
 
-contenedorProductos.guardado({
+contenedorProductos.guardar({
     title: "Producto 1 ekdvcy",
     price: 3100,
     thumbnail: "eqrqrqtt",
@@ -44,9 +44,9 @@ const productos = [
 const metodosPrueba = async () => {
 
     try {
-        const idProducto1 = await contenedorProductos.guardado(productos[0]);
-        const idProducto2 = await contenedorProductos.guardado(productos[1]);
-        const idProducto3 = await contenedorProductos.guardado(productos[2]);
+        const idProducto1 = await contenedorProductos.guardar(productos[0]);
+        const idProducto2 = await contenedorProductos.guardar(productos[1]);
+        const idProducto3 = await contenedorProductos.guardar(productos[2]);
 
         const productos = await contenedorProductos.obtenerXid(1);
         console.log({ productos });
