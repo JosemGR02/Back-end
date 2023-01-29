@@ -1,0 +1,16 @@
+
+h1(class='h1') 
+    p= 'formulario productos'
+
+form(action="/productos" method="post")
+    input(type='text' name='title' placeholder='Titulo')
+    input(type='text' name='price' placeholder='Precio')
+    input(type='text' name='thumbnail' placeholder='Miniatura')
+    button= ('Enviar :]')
+
+
+a(href="/productos"): button= ('Volver a productos')
+
+
+
+

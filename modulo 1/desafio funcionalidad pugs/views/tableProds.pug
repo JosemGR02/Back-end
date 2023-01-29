@@ -1,0 +1,37 @@
+
+div 
+    h1(class='h1')!= titulo  
+        p = 'Lista de productos'
+
+    table(class='listaProds')
+        tr(class='tr') 
+            th(class='th')= 'Título'
+            th(class='th')= 'Precio'
+            th(class='th')= 'Miniatura'
+
+        if productos.length
+            each productos
+                tr 
+                    td(class='td')#{this.title}
+                    td(class='td')#{this.price}
+                    td(class='td'): img(height="60px" width="60px" src= #{this.thumbnail})
+
+        unless productos
+            h1(class='h1')!= parrafo
+                p = 'producto no encontrado'
+
+        a(href="/"): button= ('Volver al formulario productos')
+
+style 
+    h1= color: 'blue'
+
+    tabla= border: '0.5px solid'
+
+    th= border: '0.5px solid'
+
+    td= border: '0.5px solid'
+
+    titulo= text-align: 'center'
+
+    listaProds= width: '100%'
+

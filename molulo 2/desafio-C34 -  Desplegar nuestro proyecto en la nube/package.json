@@ -1,0 +1,41 @@
+{
+  "name": "desafio-c34---desplegar-nuestro-proyecto-en-la-nube",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "0x src/app.js",
+    "test": "node src/benchmark.js",
+    "dev": "nodemon src/app.js",
+    "prod": "LOGGER_MODO=PROD node src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autocannon": "^7.10.0",
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "esm": "^3.2.25",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "joi": "^17.7.0",
+    "moment": "^2.29.4",
+    "mongoose": "^6.9.0",
+    "os": "^0.1.2",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "pino": "^8.8.0",
+    "pino-pretty": "^9.1.1",
+    "rxjs": "^7.8.0",
+    "yargs": "^17.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
